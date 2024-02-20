@@ -13,6 +13,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="bg-light rounded p-4">
+        
                 <table class="table">
                     <tr>
                         <th>NOMBRE</th>
@@ -29,13 +30,18 @@
                             echo"<td>".$info["usu_apellidos"]."</td>";
                             echo"<td>".$info["usu_email"]."</td>";
 
-                            echo " <td><a href='?controlador=usuario&accion=frmEditar&uid=$uid'>Editar </a>";
-
-                            echo" <a href='?controlador=usuario&accion=eliminar&uid=$uid'> Eliminar</a>
                             
-                            </td>";
-                            echo "</tr>";
-                        };
+                            if($_SESSION['usu_rol']==1){
+
+                                echo " <td><a href='?controlador=usuario&accion=frmEditar&uid=$uid'>Editar </a>";
+
+                                echo" <a href='?controlador=usuario&accion=eliminar&uid=$uid'> Eliminar</a>
+                                
+                                </td>";
+                                echo "</tr>";
+                            }
+                        
+                        }
                     ?>
 
                 </table>

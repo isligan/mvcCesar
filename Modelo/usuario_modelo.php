@@ -33,6 +33,17 @@ class usuario_modelo {
         return $st->fetchAll();
     
     }
+
+    public static function buscarXEmail($email){
+        $i = new conexion();
+        $con = $i->getConexion();
+        $sql = "SELECT usu_email FROM usuarios WHERE usu_email = ?";
+        $st = $con->prepare($sql);
+        $v = array($email);
+        $st->execute($v);
+        return $st->fetch();
+    }
+
     
     public static function eliminar($uid){
         $i = new conexion();

@@ -7,8 +7,7 @@ class usupro_controlador{
     }
 
     public function principal(){
-        $this->obj->unirPagina("usupro
-        /principal");
+        $this->obj->unirPagina("usupro/principal");
     }
 
     public function frmRegistrar(){}

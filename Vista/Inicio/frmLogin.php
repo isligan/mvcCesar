@@ -50,21 +50,23 @@
                             </a>
                             <h3>Ingresar</h3>
                         </div>
+                        <form action ="" method="POST" onsubmit="return false;">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
                             <label for="floatingInput">Email</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="password" placeholder="Password">
                             <label for="floatingPassword">Contraseña</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                       
                             
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4"> Ingresar</button>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="validarUsuario();"> Ingresar</button>
                         <p class="text-center mb-0">No tienes una cuenta? <a href="">Registrate aquí</a></p>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -83,7 +85,10 @@
     <script src="public/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="public/js/main.js"></script>
+    <script src="public/js/scripts.js"></script>
+
 </body>
 
 </html>

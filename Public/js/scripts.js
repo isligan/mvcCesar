@@ -72,9 +72,7 @@ let editar_usuario =async()=>{
         
     }
 }
-
-    
-
+ 
 let registrarprograma =async()=>{
     let url ='?controlador=programa&accion=registrar';
     fd = new FormData();
@@ -98,3 +96,27 @@ let registrarprograma =async()=>{
       });
       $('#frm')[0].reset();
 }
+
+let validarUsuario =async()=>{
+    let url = "?controlador=inicio&accion=validarUsuario";
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    if(email.trim()!="" && password.trim()!=""){
+        let datos = new FormData();
+        datos.append("email", email);
+        datos.append("password", password)
+        let respuesta = await fetch(url,{
+            method:'post',
+            body: datos
+        });
+        let info = await respuesta.json(); 
+        if(info.estado == 1){
+            window.location.href = "?controlador=inicio&accion=dashboard";
+        }else{
+            Swal.fire({icon:"error" , title:info.mensaje});
+        }
+    }else{
+        Swal.fire({icon:"error" , title:"Todos los campos son obligatorios"});
+    }
+}
+

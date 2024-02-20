@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "Recursos/Ruta.php";
 require_once "Recursos/Plantilla.php";
 require_once "Recursos/conexion.php";
@@ -10,9 +11,6 @@ if(isset($_GET['controlador']) && isset($_GET['accion'])){
     $accion='principal';
 }
 
-
-
-
-
 ruta::CargarContenido($controlador, $accion);
+
 ?>

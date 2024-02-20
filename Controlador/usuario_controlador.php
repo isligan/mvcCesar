@@ -3,6 +3,9 @@ require_once "Modelo/usuario_modelo.php";
     class usuario_controlador{
 
        public function __construct(){
+        if(!isset($_SESSION["usu_uid"]))
+            header("location: /Controladores");
+
         $this->obj= new plantilla();
        }
 
