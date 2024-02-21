@@ -18,9 +18,9 @@ require_once "Modelo/usuario_modelo.php";
         $this->obj-> unirpagina("usuario/frmRegistrar");
        }
        public function registrar(){
-        if(isset($_POST['nombres']) && isset($_POST['apellidos']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['telefono']) && isset($_POST['fecha_nac'])){
+        if(isset($_POST['nombres']) && isset($_POST['apellidos']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['telefono']) && isset($_POST['fecha_nac']) && isset($_POST['rol'])){
             extract($_POST);
-            if(trim($nombres)=="" && trim($apellidos)=="" && trim($email)=="" && trim($password)=="" && trim($telefono)=="" && trim($fecha_nac)==""){
+            if(trim($nombres)=="" && trim($apellidos)=="" && trim($email)=="" && trim($password)=="" && trim($telefono)=="" && trim($fecha_nac)=="" && trim($rol)==""){
                 echo json_encode(array("estado"=>2,"mensaje"=>"Todos los cos son obligatorios"));
             }else{
                 $datos['nombres'] = $nombres;
@@ -29,6 +29,7 @@ require_once "Modelo/usuario_modelo.php";
                 $datos['password'] = $password;
                 $datos['telefono'] = $telefono;
                 $datos['fecha_nac'] = $fecha_nac;
+                $datos['rol'] = $rol;
                 $res= usuario_modelo::buscarXEmail($email);
                 if(is_array($res)){
                     echo json_encode(array("estado"=>2,"mensaje"=>"Ya ese correo existe", "icono"=>"error"));
@@ -53,9 +54,9 @@ require_once "Modelo/usuario_modelo.php";
        }
        public function editar(){
         
-                    if(isset($_POST['nombres']) && isset($_POST['apellidos']) && isset($_POST['email']) && isset($_POST['uid']) && isset($_POST['telefono']) && isset($_POST['fecha_nac'])){
+                    if(isset($_POST['nombres']) && isset($_POST['apellidos']) && isset($_POST['email']) && isset($_POST['uid']) && isset($_POST['telefono']) && isset($_POST['fecha_nac']) && isset($_POST['rol'])){
                         extract($_POST);
-                        if(trim($nombres)=="" && trim($apellidos)=="" && trim($email)=="" && trim($uid)=="" && trim($telefono)=="" && trim($fecha_nac)==""){
+                        if(trim($nombres)=="" && trim($apellidos)=="" && trim($email)=="" && trim($uid)=="" && trim($telefono)=="" && trim($fecha_nac)=="" && trim($rol)==""){
                             echo json_encode(array("estado"=>2,"mensaje"=>"Todos los cos son obligatorios"));
                         }else{
                             $datos['nombres'] = $nombres;
@@ -64,6 +65,7 @@ require_once "Modelo/usuario_modelo.php";
                             $datos['uid'] = $uid;
                             $datos['telefono'] = $telefono;
                             $datos['fecha_nac'] = $fecha_nac;
+                            $datos['rol'] = $rol;
                         
                             $res = usuario_modelo::actualizar($datos);
                             if ($res > 0)

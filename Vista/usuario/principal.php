@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h3>ADMINSTRACIÓN DE USUARIOS</h3>
+                
                 <a class="btn btn-primary" href="?controlador=usuario&accion=frmRegistrar">Registrar</a>
             </div>
         </div>
@@ -36,6 +37,7 @@
                                 echo " <td><a href='?controlador=usuario&accion=frmEditar&uid=$uid'>Editar </a>";
 
                                 echo" <a href='?controlador=usuario&accion=eliminar&uid=$uid'> Eliminar</a>
+
                                 
                                 </td>";
                                 echo "</tr>";

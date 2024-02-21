@@ -5,8 +5,9 @@ let registrar_usuario =async()=>{
     let telefono = document.getElementById("telefono").value;
     let password = document.getElementById("password").value;
     let fecha_nac = document.getElementById("fecha_nac").value;
+    let rol = document.getElementById("rol").value;
 
-    if(nombres.trim()=="" && apellidos.trim()=="" && email.trim()=="" && telefono.trim()=="" && password.trim()=="" && fecha_nac.trim()==""){
+    if(nombres.trim()=="" && apellidos.trim()=="" && email.trim()=="" && telefono.trim()=="" && password.trim()=="" && fecha_nac.trim()=="" && rol.trim()=="" ){
         Swal.fire({position: "top-end", icon: "error", title: "Todos los campos son obligatorios",});
     }else{
         let url ='?controlador=usuario&accion=registrar';
@@ -18,6 +19,7 @@ let registrar_usuario =async()=>{
         fd.append("telefono" , document.getElementById("telefono").value);
         fd.append("password" , document.getElementById("password").value);
         fd.append("fecha_nac" , document.getElementById("fecha_nac").value);
+        fd.append("rol" , document.getElementById("rol").value);
 
         let respuesta = await fetch(url, {
             method:"post",
@@ -96,6 +98,8 @@ let registrarprograma =async()=>{
       });
       $('#frm')[0].reset();
 }
+
+
 
 let validarUsuario =async()=>{
     let url = "?controlador=inicio&accion=validarUsuario";

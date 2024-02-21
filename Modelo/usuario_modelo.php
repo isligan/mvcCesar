@@ -4,9 +4,9 @@ class usuario_modelo {
     public static function registrar($info){
         $i = new conexion();
         $con = $i->getConexion();
-        $sql = "INSERT INTO usuarios(usu_uid,usu_nombres,usu_apellidos,usu_email,usu_contraseña,usu_telefono,usu_fch_nac)
+        $sql = "INSERT INTO usuarios(usu_uid,usu_nombres,usu_apellidos,usu_email,usu_contraseña,usu_telefono,usu_fch_nac,usu_rol)
         values
-        (?,?,?,?,?,?,?)";
+        (?,?,?,?,?,?,?,?)";
 
         $st = $con->prepare($sql);
         $uid = uniqid();
@@ -18,7 +18,8 @@ class usuario_modelo {
             sha1( 
             $info['password']),
             $info['telefono'], 
-            $info['fecha_nac']);
+            $info['fecha_nac'],
+            $info['rol']);
 
         return $st->execute($v); // retorna el valor numerico
 

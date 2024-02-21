@@ -50,20 +50,50 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="public/img/yo.jpeg" alt="" style="width: 40px; height: 40px;">
+                    <?php 
+                        if($_SESSION['usu_rol']==1){
+                            $foto = "public/img/yo.jpeg";
+                        }elseif($_SESSION['usu_rol']==2){
+                            $foto = "public/img/woman_user.svg";
+                            }else{
+                                $foto = "public/img/goku.png";
+                            }
+                        ?>
+
+                        <img class="rounded-circle" src="<?php echo $foto; ?>" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Alberto Almanza</h6>
-                        <span>Admin</span>
+                    <span class="d-none d-lg-inline-flex "><strong>
+                        <?php echo $_SESSION['usu_nombres']." ".$_SESSION['usu_apellidos'];?>
+                    </strong></span>
+
+
+                        <?php 
+                        if($_SESSION['usu_rol']==1){
+                          echo  "<span>Admin</span>";
+                        }elseif($_SESSION['usu_rol']==2){
+                            echo  "<span>Secretaria</span>";
+                            }else{
+                                echo  "<span>Estudiante</span>";
+                            }
+                        ?>
+                        
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="/controladores" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    
 
+                    
                     <a href="?controlador=usuario&accion=principal" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Usuario</a>
-                    <a href="?controlador=programa&accion=principal" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Programa</a>
-                    <a href="?controlador=usupro&accion=principal" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Inscripción</a>
+                    
+                    <a href="?controlador=programa&accion=principal" class='nav-item nav-link'><i class='fa fa-th me-2'></i>Programa</a>
+
+                    <a href='?controlador=usupro&accion=principal' class='nav-item nav-link'><i class='fa fa-keyboard me-2'></i>Inscripción</a>
+                       
+
+                
                    
                 </div>
             </nav>
@@ -150,15 +180,27 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="public/img/yo.jpeg" alt="" style="width: 40px; height: 40px;">
+                        <?php 
+                        if($_SESSION['usu_rol']==1){
+                            $foto = "public/img/yo.jpeg";
+                        }elseif($_SESSION['usu_rol']==2){
+                            $foto = "public/img/woman_user.svg";
+                            }else{
+                                $foto = "public/img/goku.png";
+                            }
+                        ?>
+
+                        <img class="rounded-circle" src="<?php echo $foto; ?>"
+                        
+                        alt="" style="width: 40px; height: 40px;"> 
                             <span class="d-none d-lg-inline-flex">
                                 <?php echo $_SESSION['usu_nombres']." ".$_SESSION['usu_apellidos'];?>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="?controlador=inicio&accion=cerrarSession" class="dropdown-item">Log Out</a>
+                            <a href="#" class="dropdown-item">Mi Perfil</a>
+                            <a href="#" class="dropdown-item">Configuración</a>
+                            <a href="?controlador=inicio&accion=cerrarSession" class="dropdown-item">Salir</a>
                         </div>
                     </div>
                 </div>

@@ -31,6 +31,17 @@
                         <label for="fecha_nac" class="form-label">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="fecha_nac"  name="fecha_nac" placeholder="" required="">
                     </div>
+                    
+                    <div class="col-lg-2 mt-4">
+
+                            <select name="rol" class="form-select" id="rol">
+                                <option selected>Rol</option>
+                                <option value="1">Administrador</option>
+                                <option value="2">Secretaria</option>
+                                <option value="3">Estudiante</option>
+                            </select>
+                    </div>
+
                 </div>     
                 <button type="submit" class="btn btn-primary mt-4" onclick="registrar_usuario()">Registrar</button>                
             </form>
