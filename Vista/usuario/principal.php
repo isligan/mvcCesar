@@ -7,7 +7,30 @@
                 <a class="btn btn-primary" href="?controlador=usuario&accion=frmRegistrar">Registrar</a>
             </div>
         </div>
+        <?php
+        if($_SESSION['usu_rol']==1 or $_SESSION['usu_rol']==2 ){
+            echo "<div class='row mt-4'>
+                <div class='col-lg-12'>
+                    <div class='bg-light rounded p-4'>
+                        <h3>Reporte de Usuarios</h3>
+                            <form action='?controlador=usuario&accion=reportePDF' method='POST' target='_blank'>
+                                <select name='rol' class='form-control'>
+                                    <option value='1'>Admin</option>
+                                    <option value='2'>Secretaria</option>
+                                    <option value='3'>Estudiante</option>
+                                </select>
+                                <input type='submit' name='aceptar' value='aceptar' class='btn btn-primary mt-2'>
+                            </form>
+                    </div> 
+                </div>
+            </div>
+            ";
+        }
+        ?>
 </div>
+
+
+
 
 <div class="container-fluid pt-4 px-4">
 
@@ -35,12 +58,11 @@
                             if($_SESSION['usu_rol']==1){
 
                                 echo " <td><a href='?controlador=usuario&accion=frmEditar&uid=$uid'>Editar </a>";
-
                                 echo" <a href='?controlador=usuario&accion=eliminar&uid=$uid'> Eliminar</a>
-
-                                
                                 </td>";
                                 echo "</tr>";
+
+                        
                             }
                         
                         }

@@ -90,6 +90,12 @@ require_once "Modelo/usuario_modelo.php";
 
        public function buscar(){}
 
+       public function reportePDF(){
+        $rol = $_POST["rol"];
+        $allUsers = usuario_modelo::Listar("WHERE usu_rol = $rol");
+        require_once "Vista/usuario/reporte.php";
+       }
+
        
         
 

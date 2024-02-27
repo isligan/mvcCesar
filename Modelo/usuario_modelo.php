@@ -25,10 +25,10 @@ class usuario_modelo {
 
     }
 
-    public static function listar(){
+    public static function listar($condicion=""){
         $i = new conexion();
         $con = $i->getconexion();
-        $sql= "SELECT * FROM usuarios";
+        $sql= "SELECT * FROM usuarios $condicion";
         $st = $con->prepare($sql);
         $st->execute();
         return $st->fetchAll();

@@ -24,12 +24,16 @@
                     </tr>
                     <?php
                         foreach($this->programa as $info) {
+                            $uid = $info["pro_uid"];
 
                             echo"<tr>";
                             echo"<td>".$info["pro_nombre"]."</td>";
                             echo"<td>".$info["pro_codigo"]."</td>";
-                            echo"<td>EDITAR | Eliminar</td>";
-                            echo "</tr>";
+
+                            echo"<td><a href='?controlador=programa&accion=frmEditar&uid=$uid'>Editar </a>";
+                            echo" <a href='?controlador=programa&accion=eliminar&uid=$uid'> Eliminar</a>
+                            </td>";
+                            echo"</tr>";
                         };
                     ?>
 

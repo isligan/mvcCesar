@@ -30,10 +30,37 @@
    
        }
      
-       public function frmEditar(){}
-       public function editar(){}
+       public function frmEditar(){
+          $uid = $_GET["uid"];
+          $this->obj->infoprograma = programa_modelo::buscarXuid($uid);
+          $this->obj->unirpagina("programa/frmEditar");
+     }
+     public function editar(){
+      
+                  if(isset($_POST['nombre']) && isset($_POST['codigo'])){
+                      extract($_POST);
+                      if(trim($nombre)=="" && trim($codigo)==""){
+                          echo json_encode(array("estado"=>2,"mensaje"=>"Todos los campos son obligatorios"));
+                      }else{
+                          $datos['nombre'] = $nombre;
+                          $datos['codigo'] = $codigo;
+                          $datos['uid'] = $uid;
+                      
+                          $res = programa_modelo::actualizar($datos);
+                          if ($res > 0)
+                             echo json_encode(array("estado"=>1, "mensaje"=>"Editado","icono"=>"success"));
+                          else
+                             echo json_encode(array("estado"=>2, "mensaje"=>"Error al editar","icono"=>"error"));
+  
+                          }
+                  }else{
+                      echo json_encode(array("estado"=>3, "mensaje"=> "faltan parametros", "icono"=>"error"));
+                  }
+              }
 
-       public function Elimnar(){}
+       public function Elimnar(){
+          if (isset($_GETY))
+       }
 
        public function buscar(){}
         

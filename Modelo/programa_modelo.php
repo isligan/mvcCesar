@@ -27,13 +27,39 @@ class programa_modelo {
         return $st->fetchAll();
     }
 
-    public static function eliminar(){
-
+    public static function eliminar($uid){
+        $i = new conexion();
+        $con = $i->getConexion();
+        $sql = "DELETE FROM t_programa WHERE pro_uid = ?";
+        $st = $con->prepare($sql);
+        $v = array($uid);
+        return $st->execute($v);
     }
 
-    public static function actualizar(){
-        
+    public static function buscarXuid($uid){
+        $i = new conexion();
+        $con = $i->getConexion();
+        $sql = "SELECT * FROM t_programa WHERE pro_uid = ?";
+        $st = $con->prepare($sql);
+        $v = array($uid);
+        $st->execute($v);
+        return $st->fetch();
     }
+
+    public static function actualizar($info){
+        $i = new conexion();
+        $con = $i->getConexion();
+        $sql = "UPDATE t_programa SET pro_nombre=? , pro_codigo=?  WHERE pro_uid=?"; 
+        $st = $con->prepare($sql);
+        $v = array(
+            $info['nombre'], 
+            $info['codigo'], 
+            $info['uid'], 
+         
+        );
+        return $st->execute($v); // retorna el valor numerico
+    
+    }  
 }
 
 

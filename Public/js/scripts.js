@@ -28,7 +28,7 @@ let registrar_usuario =async()=>{
 
         let info = await respuesta.json();
         Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: info.mensaje,
             showConfirmButton: false,
@@ -65,7 +65,7 @@ let editar_usuario =async()=>{
 
         let info = await respuesta.json();
         Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: info.mensaje,
             showConfirmButton: false,
@@ -74,6 +74,7 @@ let editar_usuario =async()=>{
         
     }
 }
+
  
 let registrarprograma =async()=>{
     let url ='?controlador=programa&accion=registrar';
@@ -90,7 +91,7 @@ let registrarprograma =async()=>{
 
     let info = await respuesta.json();
     Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: info.mensaje,
         showConfirmButton: false,
@@ -99,6 +100,39 @@ let registrarprograma =async()=>{
       $('#frm')[0].reset();
 }
 
+let editarPrograma =async()=>{
+    let nombre = document.getElementById("nombre").value;
+    let codigo = document.getElementById("codigo").value;
+    let uid = document.getElementById("uid").value;
+   
+
+    if(nombre.trim()=="" && codigo.trim()=="" && uid.trim()=="" ){
+        Swal.fire({position: "top-end", icon: "error", title: "Todos los campos son obligatorios",});
+    }else{
+        let url ='?controlador=programa&accion=editar';
+        fd = new FormData();
+
+        fd.append("nombre" , document.getElementById("nombre").value);
+        fd.append("codigo" , document.getElementById("codigo").value);
+        fd.append("uid" , document.getElementById("uid").value);
+        
+
+        let respuesta = await fetch(url, {
+            method:"post",
+            body: fd
+        });
+
+        let info = await respuesta.json();
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: info.mensaje,
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
+    }
+}
 
 
 let validarUsuario =async()=>{
