@@ -6,8 +6,8 @@
                 <p>MVC Desarrollado en PHP..........</p>
                
                 <br>
-                <a class="btn btn-secondary" href="/controladores/">Principal</a>
-                <a class="btn btn-primary" href="?controlador=inicio&accion=frmLogin">Login</a>
+                <a class="btn btn-secondary" href="http://localhost//mvcCesar/?controlador=inicio&accion=dashboard">Principal</a>
+                <a class="btn btn-primary" href="http://localhost//mvcCesar/">Login</a>
             </div>
 
         </div>

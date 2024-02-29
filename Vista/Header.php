@@ -54,9 +54,9 @@
                         if($_SESSION['usu_rol']==1){
                             $foto = "public/img/yo.jpeg";
                         }elseif($_SESSION['usu_rol']==2){
-                            $foto = "public/img/woman_user.svg";
+                            $foto = "Public\img\secretaria.png";
                             }else{
-                                $foto = "public/img/goku.png";
+                                $foto = "Public\img\cr7.jpg";
                             }
                         ?>
 
@@ -71,18 +71,18 @@
 
                         <?php 
                         if($_SESSION['usu_rol']==1){
-                          echo  "<span>Admin</span>";
+                          echo  "<br><span>Admin</span>";
                         }elseif($_SESSION['usu_rol']==2){
                             echo  "<span>Secretaria</span>";
                             }else{
-                                echo  "<span>Estudiante</span>";
+                                echo  "<br><span>Estudiante</span>";
                             }
                         ?>
                         
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/controladores" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    <a href="http://localhost//mvcCesar/?controlador=inicio&accion=dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
                     
 
                     
@@ -184,9 +184,9 @@
                         if($_SESSION['usu_rol']==1){
                             $foto = "public/img/yo.jpeg";
                         }elseif($_SESSION['usu_rol']==2){
-                            $foto = "public/img/woman_user.svg";
+                            $foto = "Public\img\secretaria.png";
                             }else{
-                                $foto = "public/img/goku.png";
+                                $foto = "Public\img\cr7.jpg";
                             }
                         ?>
 
@@ -200,7 +200,7 @@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">Mi Perfil</a>
                             <a href="#" class="dropdown-item">Configuración</a>
-                            <a href="?controlador=inicio&accion=cerrarSession" class="dropdown-item">Salir</a>
+                            <a href="http://localhost//mvcCesar/" class="dropdown-item">Salir</a>
                         </div>
                     </div>
                 </div>

@@ -14,12 +14,14 @@
                     <div class='bg-light rounded p-4'>
                         <h3>Reporte de Usuarios</h3>
                             <form action='?controlador=usuario&accion=reportePDF' method='POST' target='_blank'>
+                            <div class='col-lg-1'>
                                 <select name='rol' class='form-control'>
                                     <option value='1'>Admin</option>
                                     <option value='2'>Secretaria</option>
                                     <option value='3'>Estudiante</option>
                                 </select>
-                                <input type='submit' name='aceptar' value='aceptar' class='btn btn-primary mt-2'>
+                                </div> 
+                                <input type='submit' name='aceptar' value='Generar reporte' class='btn btn-success mt-2'>
                             </form>
                     </div> 
                 </div>
