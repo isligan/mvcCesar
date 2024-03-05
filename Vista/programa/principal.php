@@ -30,8 +30,8 @@
                             echo"<td>".$info["pro_nombre"]."</td>";
                             echo"<td>".$info["pro_codigo"]."</td>";
 
-                            echo"<td><a href='?controlador=programa&accion=frmEditar&uid=$uid'>Editar </a>";
-                            echo" <a href='?controlador=programa&accion=eliminar&uid=$uid'> Eliminar</a>
+                            echo"<td><a class='btn btn-primary' href='?controlador=programa&accion=frmEditar&uid=$uid'>Editar </>";
+                            echo" <a class='btn btn-danger' href='?controlador=programa&accion=eliminar&uid=$uid'> Eliminar</>
                             </td>";
                             echo"</tr>";
                         };

@@ -58,9 +58,19 @@
                   }
               }
 
-       public function Elimnar(){
-          if (isset($_GETY))
-       }
+              public function eliminar(){
+                if (isset($_GET["uid"])){
+                    $uid = $_GET["uid"];
+                    $res = programa_modelo::eliminar($uid);
+                    if ($res > 0)
+                        echo json_encode(array("mensaje" => "Se eliminó el registro", "estado" => 1));
+                    else
+                        echo json_encode(array("mensaje" => "Error al eliminar el registro", "estado" => 2));
+                } else {
+                    echo json_encode(array("mensaje" => "Falta el parámetro UID", "estado" => 3));
+                }
+            }
+            
 
        public function buscar(){}
         

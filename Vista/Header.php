@@ -82,11 +82,11 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="http://localhost//mvcCesar/?controlador=inicio&accion=dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    <a href="http://localhost//mvcCesar/?controlador=inicio&accion=dashboard" class="nav-item nav-link"><i class="bi bi-house -alt me-2"></i>Inicio</a>
                     
 
                     
-                    <a href="?controlador=usuario&accion=principal" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Usuario</a>
+                    <a href="?controlador=usuario&accion=principal" class="nav-item nav-link"><i class="bi bi-person-circle me-2"></i>Usuario</a>
                     
                     <a href="?controlador=programa&accion=principal" class='nav-item nav-link'><i class='fa fa-th me-2'></i>Programa</a>
 

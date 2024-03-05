@@ -59,8 +59,8 @@
                             
                             if($_SESSION['usu_rol']==1){
 
-                                echo " <td><a href='?controlador=usuario&accion=frmEditar&uid=$uid'>Editar </a>";
-                                echo" <a href='?controlador=usuario&accion=eliminar&uid=$uid'> Eliminar</a>
+                                echo " <td> <a class='btn btn-primary' href='?controlador=usuario&accion=frmEditar&uid=$uid'>Editar </a>";
+                                echo" <a class='btn btn-danger' href='?controlador=usuario&accion=eliminar&uid=$uid'> Eliminar</a>
                                 </td>";
                                 echo "</tr>";
 
